@@ -1,0 +1,40 @@
+<div ng-controller='heatmap' ng-init="init()">
+  <style>
+    .fullscreen {
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #container3d {
+      overflow: hidden;
+      position: relative;
+      width:auto;
+      height : 600px;
+    }
+
+    #container3d:hover {
+      cursor: hand;
+    }
+
+    #heatmap-controls select {
+      margin: 0;
+    }
+
+  </style>
+
+  <div>
+    <div heatmap params="{{panel}}" style="position:relative" class="pointer">
+      <div id="heatmap-controls">
+        <togglebutton model="diagramm3d"></togglebutton>
+        <select ng-model="selectedColoring" ng-options="coloring as coloring for coloring in coloringFuncs"></select>
+      </div>
+
+      <div ng-show="!diagramm3d" id="heatmap-canvas"></div>
+      <div ng-show="diagramm3d" id="container3d"></div>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+</div>
