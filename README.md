@@ -5,10 +5,10 @@ Disclaimer: This project is from students of PPI AG and does not represent overa
 The Heatmap Panel displays all events in time slices in a 2D and 3D View.
 
 How it looks:
-![alt text](/raw/master/img/heatmap-2D.png "heatmap in 2D view")
+![alt text](../../raw/master/img/heatmap-2D.png "heatmap in 2D view")
 
 
-![alt text](/raw/master/img/heatmap-3D.png "heatmap in 3D view")
+![alt text](../../raw/master/img/heatmap-3D.png "heatmap in 3D view")
 
 
 The panel support diffrent colorings:
