@@ -42,30 +42,11 @@ After that you just need to add ```heatmap``` to the panel_names list in your ki
 ```
 
 The heatmap pabel expects that your documents have a attribut which identifies in which time-slice the the document belongs.
-This attribut should like this:
+This time-slice attribut should like this:
 
+1-Mo:23-24 
+So the format ist: [weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]
 
-In our project we use Apache Flume instead of Logstash. Here is or Code which computes the time-slice attribut.
-
-```java
-{ java {
-	imports : "import java.util.*; import java.text.DateFormat; import java.text.DateFormatSymbols; import java.text.SimpleDateFormat; import java.util.Arrays; import java.util.Calendar; import java.util.List;"
-	code  : """
-		DateFormat formatter = new SimpleDateFormat("EEEEE"); 
-	
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTimeInMillis(Long.parseLong(record.getFirstValue("timestamp").toString(), 10));
-		calendar.setTimeZone(TimeZone.getTimeZone("CET"));
-
-		String weekday = formatter.format(calendar.getTime());
-		int idx = calendar.get(Calendar.DAY_OF_WEEK);	
-
-		record.put("weekday", idx + "-" + weekday);
-
-		return child.process(record);
-	"""
-} }
-```
 
 
 ## Development
