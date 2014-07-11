@@ -1,17 +1,20 @@
 # Kibana Heatmap
 
-Disclaimer: This project is from students of PPI AG and does not represent overall code quality at PPI AG.
+**Disclaimer: This is a students project of the PPI AG and does not represent overall code quality at PPI AG.**
 
-The Heatmap Panel displays all events in time slices in a 2D and 3D View.
+Instead of displaying all Log-Events in a continues timeline as the histogramm panel the heatmap panel displays all events in time slices in a 2D and 3D View. So you can easly analyse the activity over time in your system.
 
-How it looks:
 ![alt text](../../raw/master/img/heatmap-overview.png "heatmap in 2D view")
+**The 2D view of the heatmap panel**
 
 
 ![alt text](../../raw/master/img/heatmap-3D.png "heatmap in 3D view")
+**The 3D view of the heatmap  panel**
 
 
-The panel support diffrent colorings:
+The current heatmap supports three diffrent colorings:
+![alt text](../../raw/master/img/heatmap-colorings.png "three diffrent heatmap colorings")
+
 
 
 ### Installation 
