@@ -13,7 +13,7 @@ Instead of displaying all Log-Events in a continues timeline as the histogramm p
 
 
 The current heatmap supports three diffrent colorings:
-![alt text](../../raw/master/img/heatmap-colorings.png "three diffrent heatmap colorings")
+![alt text](../../raw/master/img/heatmap-coloring.png "three diffrent heatmap colorings")
 
 
 
