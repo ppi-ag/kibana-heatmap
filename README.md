@@ -63,9 +63,9 @@ After that you just need to add ```heatmap``` to the panel_names list in your ki
 The heatmap panel expects that your documents have a attribut which identifies in which time-slice the document belongs.
 This time-slice attribut should like this:
 
-1-Mo:23-24 
+```1-Mo:23-24``` 
 
-So the geberal format is: [weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]
+So the geberal format is: ```[weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]```
 
 
 ## Development
