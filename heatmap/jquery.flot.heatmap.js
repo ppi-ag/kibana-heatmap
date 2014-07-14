@@ -1,9 +1,7 @@
 "use strict";
 
-/*
- * Author: Lukas Havemannn
- * PPI AG 2014
- */
+// Author: Lukas Havemannn
+// PPI AG 2014
 
  /*global jQuery:false */
 
@@ -126,7 +124,7 @@
       }
 
       function calculateLegendPosition(canvasWidth, tileSize, maxValueWidth) {
-        // Berechne Position der Legende von der rechten Seite aus
+        // calculate position og the legend
         var rightX = opts.legend.leftOffset + opts.tile.count.x * tileSize + opts.legend.padding; 
         var legendOffset = Math.min(opts.legend.rightOffset, maxValueWidth);
 

@@ -127,7 +127,7 @@ define([
   }
 
   function renderLabelText() {
-    // Labeltext rendering
+    // labeltext rendering
 
     // TODO : do not hard code
     $.each(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], function(idx, value){
@@ -260,7 +260,7 @@ define([
   }
 
   function onWindowResize(event) {
-    //Canvas verstecken damit der Container sich resizen kann
+    // hide canvas element so the outer container can resize
     $(renderer.domElement).hide();
 
     contWidth  = container.clientWidth;
@@ -288,39 +288,3 @@ define([
     "display" : display
   };
 });
-
-
-
-/*
-SAVED FOR LATER USE
-
-  function renderGrid() {
-    // grid
-    
-var material = new THREE.LineBasicMaterial( { color: 0xffffff, opacity: 0.2, transparent: true } );
-
-    
-   plane = new THREE.Mesh( new THREE.PlaneGeometry( 1000, 1000 ), new THREE.MeshBasicMaterial() );
-    plane.rotation.x = - Math.PI / 2;
-    plane.visible = false;
-    scene.add( plane );
-    
-    var size = 500, step = BOX_SIZE;
-    var geometry = new THREE.Geometry();
-
-    for ( var i = - size; i <= size; i += step ) {
-
-      geometry.vertices.push( new THREE.Vector3( - size, 0, i ) );
-      geometry.vertices.push( new THREE.Vector3(   size, 0, i ) );
-
-      geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
-      geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
-
-    }
-    
-    var line = new THREE.Line( geometry, material );
-    line.type = THREE.LinePieces;
-    scene.add( line ); 
-  }
-
-*/

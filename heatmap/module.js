@@ -135,11 +135,6 @@ function (angular, app, _, $, kbn) {
         boolQuery = boolQuery.should(querySrv.toEjsObj(q));
       });
 
-      // Für den dynamischen Request
-      //.scriptField(new ScriptField("new-field").script("time-slice").lang("native").params({ 
-      //     "field": "timestamp"
-      //   }))
-
       request = request
         .facet($scope.ejs.TermsFacet('terms')
         .field($scope.field)
@@ -200,7 +195,7 @@ function (angular, app, _, $, kbn) {
       link: function(scope, elem) {
         var plot;
 
-        //TODO do nicer
+        //TODO do it in the angular way
         elem = $("#heatmap-canvas");
 
         // Receive render events
@@ -252,7 +247,7 @@ function (angular, app, _, $, kbn) {
             require(['webgl.heatmap'], function(webglHeatmap) {
               // TODO build own directive for WebGL Heatmap
               webglHeatmap.display(chartData, $("#container3d").get(0), scope.selectedColoring);
-            });  
+            });
           }
           
           elem.bind("plothover", function (event, pos, tile) {
