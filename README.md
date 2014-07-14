@@ -2,24 +2,40 @@
 
 **Disclaimer: This is a students project of the PPI AG and does not represent overall code quality at PPI AG.**
 
-Instead of displaying all Log-Events in a continues timeline as the histogramm panel the heatmap panel displays all events in time slices in a 2D and 3D View. So you can easly analyse the activity over time in your system.
+Instead of displaying all Log-Events in a continuous timeline the heatmap panel displays all events in one-hour time slices. 
+So you can easly analyse the activity over time in your system.
+
 
 ![alt text](../../raw/master/img/heatmap-overview.png "heatmap in 2D view")
+
 **The 2D view of the heatmap panel**
 
 
+
 ![alt text](../../raw/master/img/heatmap-3D.png "heatmap in 3D view")
+
 **The 3D view of the heatmap  panel**
 
 
-The current heatmap supports three diffrent colorings:
+In the current version the heatmap supports three diffrent colorings:
 ![alt text](../../raw/master/img/heatmap-coloring.png "three diffrent heatmap colorings")
 
+
+### Features in current version:
+ - legend & tooltips in 2D view
+ - panable and zoomable 3D View     
+ - three diffrent color schemas 
+
+### TODOs 
+- support of aggregate functions like (min, max, mean etc. ) 
+- improve 3D view (tooltips, legend, etc.)
+- support for the different Kibana themes
+- adjustable time-slicing
 
 
 ### Installation 
 
-To install the heatmap you just need to put the heatmap folder in the ```app/panels/```-Folder of your Kibana installation.
+To install the heatmap you just need to put the heatmap folder in the ```app/panels/``` direcotry of your Kibana installation.
 After that you just need to add ```heatmap``` to the panel_names list in your kibana ```config.js```.
 
 ```js
@@ -41,28 +57,26 @@ After that you just need to add ```heatmap``` to the panel_names list in your ki
 
 ```
 
-The heatmap pabel expects that your documents have a attribut which identifies in which time-slice the the document belongs.
+
+## Requirements
+
+The heatmap panel expects that your documents have a attribut which identifies in which time-slice the document belongs.
 This time-slice attribut should like this:
 
 1-Mo:23-24 
-So the format ist: [weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]
 
+So the geberal format is: [weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]
 
 
 ## Development
 
-Kibana uses jQuery flot for the plotting of the diagramms. So we implemented a flot heatmap plugin first. This Plugin is used to render the 2D view of the heatmap. 
-The flot plugin renders the legend in the canvas and not as html as the other flot plugins. Because of this we currently support only the light theme or you switch one constant in the jquery.heatmap.js file. 
-We are looking forward to further develop the Heatmap and implement the legend as HTML. But your help is appreciated!
+Kibana uses jQuery flot for the plotting of the diagramms. So we implemented at first a flot heatmap plugin which is used to render the 2D view of the heatmap. 
+At moment our heatmap flot plugin renders the legend in the canvas itself and not as html as the other flot plugins. 
+Because of this we currently do not support Kibana themes swichtes. The color of the legend texts are defined in ```options.series.heatmap.fontColor``` in the ```jquery.flot.heatmap.js```
 
-### Features in v1.0:
- - 2D & 3D view
- - legend & tooltips in 2D view
- - dreh und zoombare 3D Ansicht     
- - Color Interpolation Algorithmus zum erzeugen des klassichen Heatmap Farbschemas  
- - default Color Schema + 2 weitere  
+For the rendering of the 3D view we use [THREE.js](http://threejs.org/).
 
-### TODOs 
-- support of aggregate functions like (min, max, mean etc. ) 
-- improve 3D view (tooltips, legend, etc.)
-- support for the different themes
+We are looking forward to further develop the panel and to improve the code quality. The current version is very rudimentary. 
+
+Your help is very appreciated!
+
