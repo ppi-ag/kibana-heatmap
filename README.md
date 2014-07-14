@@ -26,7 +26,7 @@ In the current version the heatmap supports three diffrent colorings:
  - panable and zoomable 3D View     
  - three diffrent color schemas 
 
-## TODOs 
+## ToDos 
 - support of aggregate functions like (min, max, mean etc. ) 
 - improve 3D view (tooltips, legend, etc.)
 - support for the different Kibana themes
@@ -61,9 +61,7 @@ After that you just need to add ```heatmap``` to the panel_names list in your ki
 ## Requirements
 
 The heatmap panel expects that your documents have a attribut which identifies in which time-slice the document belongs.
-This time-slice attribut should like this:
-
-```1-Mo:23-24``` 
+This time-slice attribut should like this: ```1-Mo:23-24``` 
 
 So the geberal format is: ```[weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]```
 
