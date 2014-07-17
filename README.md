@@ -9,7 +9,8 @@ per weekday and hour for a complete week with 168 time slots
 (24 hours x 7 weekdays). The first time slot is Monday from midnight to 1 am 
 and the last is Sunday 11 pm to midnight. 
 
-This visual representation shows how the typical system activity changes
+Both 2D and 3D view use different colors to visualize the number of events 
+per time slot and show how the typical system activity changes
 during the day and during the week. You can easily spot both the hot spots with 
 very high usage as well as periods with very low usage. 
 
