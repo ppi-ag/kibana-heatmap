@@ -1,8 +1,7 @@
 # Kibana Heatmap
 
-This module provides an additional panel type for the Kibana web application 
+This module provides an additional panel type for the [Kibana](http://www.elasticsearch.org/overview/kibana/) web application 
 that visualizes time-stamped log events stored in the Elasticsearch database. 
-(http://www.elasticsearch.org/overview/kibana/)
 
 The heatmap panel shows a 2D/3D overview of the average number of events 
 per weekday and hour for a complete week with 168 time slots 
