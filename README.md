@@ -1,23 +1,29 @@
 # Kibana Heatmap
 
-**Disclaimer: This is a student's project of the PPI AG and does not represent overall code quality at PPI AG.**
+This module provides an additional panel type for the Kibana web application 
+that visualizes time-stamped log events stored in the Elasticsearch database. 
+(http://www.elasticsearch.org/overview/kibana/)
 
-Instead of displaying all log events in a continuous timeline the heatmap panel displays all events in one-hour time slices. 
-So you can easily analyse the activity over time in your system.
+The heatmap panel shows a 2D/3D overview of the average number of events 
+per weekday and hour for a complete week with 168 time slots 
+(24 hours x 7 weekdays). The first time slot is Monday from midnight to 1 am 
+and the last is Sunday 11 pm to midnight. 
 
+This visual representation shows how the typical system activity changes
+during the day and during the week. You can easily spot both the hot spots with 
+very high usage as well as periods with very low usage. 
 
-
-### The 2D view of the heatmap panel
+### 2D view example of the heatmap panel
 ![alt text](../../raw/master/img/heatmap-overview.png "heatmap in 2D view")
 
 
 
 
-### The 3D view of the heatmap  panel
+### 3D view example of the heatmap  panel
 ![alt text](../../raw/master/img/heatmap-3D.png "heatmap in 3D view")
 
 
-In the current version the heatmap supports three diffrent colorings:
+The current version of the heatmap panel supports three diffrent colorings:
 ![alt text](../../raw/master/img/heatmap-coloring.png "three diffrent heatmap colorings")
 
 
@@ -30,7 +36,7 @@ In the current version the heatmap supports three diffrent colorings:
 - support of aggregate functions like (min, max, mean etc. )
 - improve 3D view (tooltips, legend, etc.)
 - support for the different Kibana themes
-- adjustable time-slicing
+- adjustable time slots
 
 
 ## Installation 
@@ -56,27 +62,34 @@ After that you just need to add ```heatmap``` to the panel_names list in your ki
 /* [...] */
 
 ```
-
+The panel was tested with Kibana 3.0.1 and 3.1.0.
+Please use a modern web browser like Chrome or Firefox. 
 
 ## Requirements
 
-The heatmap panel expects that your documents have an attribute which identifies the time-slice the document belongs to.
-This time-slice attribute should look like this: ```1-Mo:23-24``` 
+The heatmap panel expects that your documents have a field which identifies the time slot the document belongs to.
+This time slot field should contain a value like this: ```1-Mo:23-24``` 
 
-So the geberal format is: ```[weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]```
+So the general format is: ```[weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]```
+
+It is posible to determine the correct time slot from a timestamp using the elasticsearch script functionality on the fly during query execution.
 
 
 ## Development
 
-Kibana uses jQuery flot to plot the diagrams. So at first we implemented a flot heatmap plugin which is used to render the 2D view of the heatmap. 
+Kibana uses jQuery flot to plot the diagrams. So first we implemented a flot heatmap plugin which is used to render the 2D view of the heatmap. 
 Currently our heatmap flot plugin renders the legend in the canvas itself and not as html as the other flot plugins. 
 Because of this we currently do not support Kibana themes switches. The color of the legend texts are defined in ```options.series.heatmap.fontColor``` in ```jquery.flot.heatmap.js```
 
 For the rendering of the 3D view we use [THREE.js](http://threejs.org/).
 
-We are looking forward to further develop the panel and to improve the code quality. The current version is very rudimentary.
+We would like to improve this initial version by adding new features and improving the code quality.
 
 Your help is very appreciated!
+
+
+**Disclaimer: This module was created during a student project of PPI AG and 
+does not represent typical code quality at PPI AG.**
 
 
 ## License
