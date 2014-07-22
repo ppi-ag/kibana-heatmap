@@ -62,12 +62,12 @@ function (angular, app, _, $, kbn) {
        * === Parameters
        *
        * field:: The field on which to computer the facet
-       * default field is time-slice; fields must contain time data in specifiec format
+       * default field is time-slot; fields must contain time data in specifiec format
        */
-      field : 'time-slice',
+      field : 'time-slot',
 
       /** @scratch /panels/heatmap/5
-       * size:: Request 168 because 24h * 7d are 168 time slices / tiles
+       * size:: Request 168 because 24h * 7d are 168 time slots / tiles
        */
       size : 168,
 
@@ -208,9 +208,9 @@ function (angular, app, _, $, kbn) {
           scope.data = [];
 
           _.each(scope.results.facets.terms.terms, function(v) {
-            var slice = { label : v.term, data : [[k,v.count]], actions: true};
+            var slot = { label : v.term, data : [[k,v.count]], actions: true};
             
-            scope.data.push(slice);
+            scope.data.push(slot);
             k = k + 1;
           });
         }

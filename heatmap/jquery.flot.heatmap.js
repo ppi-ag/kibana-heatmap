@@ -146,18 +146,18 @@
       };
 
       $.each(data, function(idx, val){
-        var timeSlice = parseTimeSliceLabel(val.label);
+        var timeSlot = parseTimeSlotLabel(val.label);
         
         var tile = {
           value     : val.data[0][1],
           label     : val.label, 
-          timeSlice : timeSlice,
+          timeSlot  : timeSlot,
         };
 
         tile['heat'] = tile.value / model.range.diff;
 
-        tile.y = timeSlice.day * tileSize;
-        tile.x = timeSlice.hour.start * tileSize;
+        tile.y = timeSlot.day * tileSize;
+        tile.x = timeSlot.hour.start * tileSize;
 
         model.tiles.push(tile);
       });
@@ -194,7 +194,7 @@
     }
   } // END init
 
-  function parseTimeSliceLabel(label) {
+  function parseTimeSlotLabel(label) {
     // Label Example: 1-Mo:23-24 
     // Format:       [weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]
 
@@ -288,7 +288,7 @@
 
   $.plot.heatmap.coloring             = getColoringFuncs();
   $.plot.heatmap.getValueRange        = getValueRange;
-  $.plot.heatmap.parseTimeSliceLabel  = parseTimeSliceLabel;
+  $.plot.heatmap.parseTimeSlotLabel   = parseTimeSlotLabel;
 
   var options = {
     series: {

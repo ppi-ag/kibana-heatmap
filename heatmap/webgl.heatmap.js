@@ -111,15 +111,15 @@ define([
     var range = $.plot.heatmap.getValueRange(data);
 
     $.each(data, function(idx, val) {
-      // TODO not noce
+      // TODO not nice
 
-      var timeSlice = $.plot.heatmap.parseTimeSliceLabel(val.label);
+      var timeSlot = $.plot.heatmap.parseTimeSlotLabel(val.label);
       var value     = val.data[0][1];
       var heat      = value / range.diff;
       var height    = BOX_SIZE * heat * FACTOR;
       var color     = coloring(heat);
 
-      var object = createHeatmapTile(timeSlice.hour.start, timeSlice.day, BOX_SIZE, height, color);
+      var object = createHeatmapTile(timeSlot.hour.start, timeSlot.day, BOX_SIZE, height, color);
 
       tiles.push(object);
       scene.add( object );
