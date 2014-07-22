@@ -83,62 +83,7 @@ The format was designed to be human readable and does not follow any ISO standar
 
 ### Apache Flume
 
-If you use Apache Flume with Morphlines to import your log data you can use the following morphline configuration to generate the time.slot attribute:
-
-```java
-{ java {
-	imports : "import java.util.*; import java.text.DateFormat; import java.text.DateFormatSymbols; import java.text.SimpleDateFormat; import java.util.Arrays; import java.util.Calendar; import java.util.List;"
-	code  : """
-	 TimeZone zone = TimeZone.getTimeZone("CET");
-		Calendar calendar     = Calendar.getInstance(zone);
-		List<String> weekdays = Arrays.asList(new DateFormatSymbols().getWeekdays());
-		
-		// Date formatter to get the weekday an hour of the timestamp attribut
-		DateFormat formatter = new SimpleDateFormat("EEEEE H"); 
-		formatter.setTimeZone(zone);
-		
-		StringBuilder timeSlot = new StringBuilder();
-		
-		String timeInMillis = record.getFirstValue("timestamp").toString();
-		calendar.setTimeInMillis(Long.parseLong(timeInMillis, 10));
-		
-
-		String weekdayHour[] 	= formatter.format(calendar.getTime()).split(" ");
-		String weekday 			    = weekdayHour[0];
-		String hour 			       = weekdayHour[1];
-		
-
-		// DateFormatSymbols().getWeekdays() returns Sunday at first position 
-		// but we want it to have the index 7
-		int idx = weekdays.indexOf(weekday);
-		idx = (idx <= 1) ? 7 : idx - 1; 
-		
-		// getting the time slot
-		int hourStart = Integer.parseInt(hour);
-		int hourEnd   = hourStart + 1;
-		
-		timeSlot.append(idx).append("-");
-		timeSlot.append(weekday).append(":");
-		
-		// add leading zero just for readability
-		if(hourStart < 10) {
-			timeSlot.append("0");
-		}
-		timeSlot.append(hourStart).append("-");
-		
-		// add leading zero just for readability
-		if(hourEnd < 10) {
-			timeSlot.append("0");
-		}
-		timeSlot.append(hourEnd);
-				
-		record.put("time-slot", timeSlot);
-		record.put("weekday", weekday);
-
-		return child.process(record);
-	"""
-} }
-```
+If you use Apache Flume with Morphlines to import your log data you can use the [morphline configuration](morphline.conf) to generate the time.slot attribute´.
 
 
 ### Logstash
