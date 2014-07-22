@@ -65,14 +65,21 @@ After that you just need to add ```heatmap``` to the panel_names list in your ki
 The panel was tested with Kibana 3.0.1 and 3.1.0.
 Please use a modern web browser like Chrome or Firefox. 
 
+
 ## Requirements
 
 The heatmap panel expects that your documents have a field which identifies the time slot the document belongs to.
-This time slot field should contain a value like this: ```1-Mo:23-24``` 
+This time slot field should contain a value like this: ```1-Mon:23-24``` 
 
 So the general format is: ```[weekdayAsNumber]-[weekdayAsString]:[hourstart]-[hourend]```
 
-It is posible to determine the correct time slot from a timestamp using the elasticsearch script functionality on the fly during query execution.
+Detailed explanation: 
+
+ * ```weekdayAsNumber``` should be a value between 1 and 7. 1 -> Monday, 2 -> Tuesday, ..., 7 -> Sunday
+ * ```weekdayAsString``` At moment it could be any String. In a later version this String could be used for the legend, because there is no Javascript API to get the local weekday as String from the Javascript Date object.
+ * ```hourstart``` and ```hourend``` Specify in which period the log event belongs. 00-01 -> the event was produced between midnight and 1 o'clock. So the possible values are: ```00-01```, ```01-02```, ```02-03```, ```...``` , ```22-23```, ```23-24```
+
+The format was designed to be human readable and does not follow any ISO standard. The format may change in later versions or this attribute will be removed, because it is possible to determine the correct time slot from a timestamp using the elasticsearch script functionality on the fly during query execution.
 
 
 ## Development
