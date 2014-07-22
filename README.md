@@ -77,7 +77,7 @@ Detailed explanation:
 
  * ```weekdayAsNumber``` should be a value between 1 and 7. 1 -> Monday, 2 -> Tuesday, ..., 7 -> Sunday
  * ```weekdayAsString``` At moment it could be any String. In a later version this String could be used for the legend, because there is no Javascript API to get the local weekday as String from the Javascript Date object.
- * ```hourstart``` and ```hourend``` Specify in which period the log event belongs. 00-01 -> the event was produced between midnight and 1 o'clock. So the possible values are: ```00-01```, ```01-02```, ```02-03```, ```...``` , ```22-23```, ```23-24```
+ * ```hourstart``` and ```hourend``` Specify in which period the log event belongs. So 00-01 means that the event was produced between midnight and 1 o'clock. Examples: ```00-01```, ```01-02```, ```02-03```, ```...``` , ```22-23```, ```23-24```
 
 The format was designed to be human readable and does not follow any ISO standard. The format may change in later versions or this attribute will be removed, because it is possible to determine the correct time slot from a timestamp using the elasticsearch script functionality on the fly during query execution.
 
