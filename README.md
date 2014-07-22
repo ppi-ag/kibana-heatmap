@@ -83,7 +83,7 @@ The format was designed to be human readable and does not follow any ISO standar
 
 ### Apache Flume
 
-If you use Apache Flume with Morphlines to import your log data you can use the [morphline configuration](morphline.conf) to generate the time-slot attribute.
+If you use Apache Flume with Morphlines to import your log data you can use this [morphline configuration](morphline.conf) to generate the time-slot attribute.
 
 
 ### Logstash
