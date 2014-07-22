@@ -3,8 +3,8 @@
 This module provides an additional panel type for the [Kibana](http://www.elasticsearch.org/overview/kibana/) web application 
 that visualizes time-stamped log events stored in the Elasticsearch database. 
 
-The heatmap panel shows a 2D/3D overview of the average number of events 
-per weekday and hour for a complete week with 168 time slots 
+The heatmap panel shows a 2D/3D overview of the total number of events 
+per weekday and hour for your selected time span with 168 time slots 
 (24 hours x 7 weekdays). The first time slot is Monday from midnight to 1 am 
 and the last is Sunday 11 pm to midnight. 
 
