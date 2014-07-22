@@ -48,7 +48,7 @@ function (angular, app, _, $, kbn) {
           show: $scope.panel.spyable
         }
       ],
-      
+
       editorTabs : [
         {title:'Queries', src:'app/partials/querySelect.html'}
       ], 
@@ -88,6 +88,8 @@ function (angular, app, _, $, kbn) {
         ids         : []
       },
     };
+
+     _.defaults($scope.panel,_d);
 
     $scope.init = function () {
       $scope.$on('refresh', function(){
