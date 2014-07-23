@@ -37,6 +37,7 @@ The current version of the heatmap panel supports three diffrent colorings:
 - improve 3D view (tooltips, legend, etc.)
 - support for the different Kibana themes
 - adjustable time slots
+- support for time zones
 
 
 ## Installation 
@@ -89,6 +90,11 @@ If you use Apache Flume with Morphlines to import your log data you can use this
 ### Logstash
 
 We think the right way to generate the time-slot attribut with logstah would be a additional logstash filter class. So if you are familier with ruby and logstash your help is appreciated.
+
+Or you may want to use the inline [filter code provided by yogi183](https://github.com/ppi-ag/kibana-heatmap/issues/1#issuecomment-49777657) to generate the time-slot attribute.
+
+
+* * * 
 
 
 ## Development
