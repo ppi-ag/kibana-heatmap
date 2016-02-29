@@ -1,6 +1,6 @@
 # Kibana Heatmap for Kibana 3
 
-This plugin is designed for Kibana 3. Shelby Sturgis provides a [Heatmap Plugin](https://github.com/stormpython/heatmap) for Kibana 4.
+This plugin is designed for Kibana 3. Shelby Sturgis provides a [Heatmap Plugin for Kibana 4](https://github.com/stormpython/heatmap).
 
 This plugin provides an additional panel type for the [Kibana](http://www.elasticsearch.org/overview/kibana/) web application 
 that visualizes time-stamped log events stored in the Elasticsearch database. 
